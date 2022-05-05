@@ -1,6 +1,6 @@
 use anchor_lang::prelude::*;
 
-declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
+declare_id!("6HAqK9Q5gqd93YgByeFERJVqGLcUNLoHuejQF5bxqFdE");
 
 #[program]
 pub mod arguments_and_accounts {
@@ -43,6 +43,15 @@ pub struct Initialize<'info> {
     pub user: Signer<'info>,
     pub system_program: Program<'info, System>
 }
+
+/* Similarly, the Update accounts struct is marked with the 
+   #[account(mut)] attribute. 
+
+   ? Marking an account as mut persists any changes made upon 
+   ? exiting the program. 
+   
+   NOTE: you must mark an account init when using it for the 
+   first time and mut for persisting changes. */
 
 #[derive(Accounts)]
 pub struct Update<'info> {
